@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d1b" />
+  <meta name="description" content="Prava Akademiya — O‘zbekiston haydovchilik guvohnomasi nazariy imtihoniga tayyorlanish platformasi. Biletlar, mavzular va 20 daqiqalik imtihon simulyatori." />
+  <title>Prava Akademiya — Haydovchilik imtihoni va testlari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" data-view="home" aria-label="Prava Akademiya bosh sahifa">
+        <span class="brand-mark">◉</span><span>Prava <b>Akademiya</b></span>
+      </a>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Menyuni ochish">☰</button>
+      <nav class="nav" id="mainNav">
+        <button class="nav-link active" data-view="home">⌂ <span>Bosh sahifa</span></button>
+        <button class="nav-link nav-exam" data-view="exam">⏱ <span>Imtihon</span></button>
+        <button class="nav-link" data-view="tickets">▤ <span>Biletlar</span></button>
+        <button class="nav-link" data-view="topics">▣ <span>Mavzular</span></button>
+        <button class="nav-link" data-view="stats">▥ <span>Statistika</span></button>
+        <button class="nav-link" data-view="profile">♙ <span>Profil</span></button>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-btn" id="themeToggle" title="Rang rejimini almashtirish">☼</button>
+        <button class="primary small" id="loginBtn">♙ Kirish</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">✦ O‘zingizni sinab ko‘ring!</span>
+          <h1>Haydovchilik imtihoniga <em>tayyorlaning</em></h1>
+          <p>Yo‘l harakati qoidalarini o‘rganing, rasmli testlarni yeching va 20 daqiqalik real imtihon simulyatorida bilimingizni sinang.</p>
+          <div class="hero-buttons">
+            <button class="primary" data-view="exam">⏱ Imtihonni boshlash</button>
+            <button class="secondary" id="howBtn">ⓘ Qanday ishlaydi?</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Bilim — xavfsiz yo‘l: avtomobil va yo‘l belgilari">
+          <img src="./assets/hero-car.png" alt="Oq 3D avtomobil, yo‘l va harakat belgilari — Bilim xavfsiz yo‘l" />
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <article class="stat-card"><span class="stat-icon green">⏱</span><div><strong>20 daq</strong><b>Imtihon</b><small>20 ta savol / 2 ta xato</small></div></article>
+        <article class="stat-card"><span class="stat-icon blue">▰</span><div><strong>5</strong><b>Bilet</b><small>Mavzulashtirilgan</small></div></article>
+        <article class="stat-card"><span class="stat-icon purple">∞</span><div><strong>Bepul</strong><b>Mashqlar</b><small>Cheksiz va ovozli</small></div></article>
+      </section>
+
+      <section class="content-grid" id="homeContent">
+        <div class="main-column">
+          <div class="section-heading"><div><h2>Asosiy bo‘limlar</h2><p>O‘zingizga kerakli bo‘limni tanlang va o‘qishni boshlang</p></div></div>
+          <div class="feature-grid">
+            <button class="feature-card highlight" data-view="exam"><span class="feature-icon orange">⏱</span><span><b>Imtihon simulyatori</b><small>20 savol, 20 daqiqa vaqt chegarasi bilan</small></span><i>→</i></button>
+            <button class="feature-card" data-view="tickets"><span class="feature-icon purple">▤</span><span><b>Biletlar</b><small>Imtihon biletlari asosida testlar yeching</small></span><i>→</i></button>
+            <button class="feature-card" data-view="topics"><span class="feature-icon green">▥</span><span><b>Mavzular</b><small>Yo‘l qoidalarini mavzular bo‘yicha o‘rganing</small></span><i>→</i></button>
+            <button class="feature-card" data-view="mistakes"><span class="feature-icon red">!</span><span><b>Xatolarim</b><small>Noto‘g‘ri javoblaringizni qayta ko‘rib chiqing</small></span><i>→</i></button>
+            <button class="feature-card" data-view="smart"><span class="feature-icon violet">✧</span><span><b>Smart test</b><small>Mashq uchun 10 ta aralash savol</small></span><i>→</i></button>
+          </div>
+          <div class="bottom-panels">
+            <article class="panel progress-panel">
+              <h3>▥ &nbsp; O‘qish progressi</h3>
+              <div class="progress-row"><div class="progress-ring" id="progressRing"><span id="progressPercent">0%</span></div><div class="progress-items">
+                <div><span>Biletlar</span><b id="ticketProgressText">0 / 5</b><div class="bar"><i id="ticketBar"></i></div></div>
+                <div><span>Mavzular</span><b id="topicProgressText">0 / 4</b><div class="bar"><i id="topicBar"></i></div></div>
+                <div><span>Javoblar</span><b id="answeredText">0 ta</b><div class="bar"><i id="answerBar"></i></div></div>
+              </div></div>
+            </article>
+            <article class="panel goal-panel"><span class="trophy">🏆</span><div><h3>Maqsad — haydovchi bo‘lish!</h3><p>Bugun o‘rgangan har bir savol sizni maqsadingizga yaqinlashtiradi.</p></div><span class="hand-note small-note">Sen buni<br/>uddalaysan!</span></article>
+          </div>
+        </div>
+        <aside class="panel daily-panel">
+          <div class="daily-head"><h3>◎ &nbsp; Bugungi test</h3><span class="pill" id="dailyCount">1 / 5</span></div>
+          <div id="dailyQuestion" class="daily-question"></div>
+          <div id="dailyOptions" class="daily-options"></div>
+          <div class="daily-controls"><button class="secondary mini" id="dailyPrev">‹ Oldingi</button><button class="primary mini" id="dailyNext">Keyingi →</button></div>
+          <p class="feedback" id="dailyFeedback" aria-live="polite"></p>
+        </aside>
+      </section>
+
+      <section class="view-panel hidden" id="viewPanel">
+        <div class="view-title"><div><span class="eyebrow">PRAVA AKADEMIYA</span><h2 id="viewTitle">Biletlar</h2><p id="viewDescription">Bilimingizni sinab ko‘ring.</p></div><button class="secondary" id="backHome">← Bosh sahifaga</button></div>
+        <div id="viewContent"></div>
+      </section>
+    </main>
+
+    <footer><a class="brand footer-brand" href="#" data-view="home"><span class="brand-mark">◉</span><span>Prava <b>Akademiya</b></span></a><div class="footer-links"><button data-view="home">Bosh sahifa</button><button data-view="exam">Imtihon</button><button data-view="tickets">Biletlar</button><button data-view="topics">Mavzular</button><button data-view="stats">Statistika</button><button id="faqBtn">FAQ</button></div><span class="copyright">© 2026 Prava Akademiya · O‘quv loyihasi</span></footer>
+  </div>
+
+  <dialog id="loginDialog" class="modal">
+    <form method="dialog" id="loginForm">
+      <button class="modal-close" value="cancel" aria-label="Yopish">×</button>
+      <span class="brand-mark large-mark">◉</span><h2>Profilingizni sozlang</h2><p>Ismingizni kiriting. Natijalar ushbu brauzerda saqlanadi.</p>
+      <label for="userName">Ismingiz</label><input id="userName" maxlength="40" placeholder="Masalan, Aziz" />
+      <button class="primary full" id="saveProfile" value="default">Saqlash</button>
+    </form>
+  </dialog>
+  <dialog id="infoDialog" class="modal">
+    <form method="dialog"><button class="modal-close" value="cancel" aria-label="Yopish">×</button><h2 id="infoTitle">Qanday ishlaydi?</h2><p id="infoText">Bo‘limni tanlang, savolga javob bering va natijangizni kuzating.</p><button class="primary full" value="ok">Tushunarli</button></form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./script.js"></script>
+</body>
+</html>
